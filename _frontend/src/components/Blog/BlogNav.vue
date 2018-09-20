@@ -1,11 +1,12 @@
 <template>
 <div class="level">
   <div class="level-left">
-    
+
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="title">제목</p>
+
+      <router-link to="/blog"><p class="title">BlueCitron's Blog</p></router-link>
     </div>
   </div>
   <div class="level-right">
