@@ -1,44 +1,35 @@
 "use strict";
 
+require("@babel/polyfill");
+
+var _express = _interopRequireDefault(require("express"));
+
+var _path = _interopRequireDefault(require("path"));
+
+var _cookieParser = _interopRequireDefault(require("cookie-parser"));
+
+var _bodyParser = _interopRequireDefault(require("body-parser"));
+
+var _morgan = _interopRequireDefault(require("morgan"));
+
 var _index = _interopRequireDefault(require("./routes/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var express = require('express');
-
-var path = require('path');
-
-var cookieParser = require('cookie-parser');
-
-var bodyParser = require('body-parser');
-
-var logger = require('morgan');
-
-var mongoose = require('mongoose'); //var indexRouter = require('./routes/index');
-
-
-var app = express();
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({
+var app = (0, _express.default)();
+var port = 8080;
+app.use((0, _morgan.default)('dev'));
+app.use(_express.default.json());
+app.use(_express.default.urlencoded({
   extended: false
 }));
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({
+app.use((0, _cookieParser.default)());
+app.use(_bodyParser.default.urlencoded({
   extended: false
 }));
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', _index.default);
+app.use(_bodyParser.default.json());
+app.use('/', _index.default); // open the server
 
-function initDB() {
-  mongoose.connect('mongodb://49.247.204.250/bluecitron', {
-    useNewUrlParser: true
-  });
-  mongoose.connection.once('open', function () {
-    console.log('DB Connection established.');
-  });
-}
-
-initDB();
-module.exports = app;
+app.listen(port, function () {
+  console.log("Server started listening on port ".concat(port));
+});
