@@ -1,20 +1,23 @@
-import { Sample } from '../models/sample';
+import { Comment } from '../models/comment';
 
-export const getSample = async (id) => {
-    return Sample.findById(id);
+export const getSCommentByPostId = async (postId) => {
+    return Comment.find({ postId });
 };
 
-export const createSample = async ({ title, content }) => {
+export const createComment = async ({ title, content }) => {
+  // validation()
 
-    /*
-     * TODO validation
-     * if (타이틀이나 컨텐츠가 올바르지 않아) {
-     *     throw new Error('글쓰기 실패')
-     * }
-     */
-
-    return Sample.create({
-        title,
-        content,
-    });
+  return Comment.create();
 };
+
+export const updateComment = async () => {
+
+};
+
+export const deleteComment = async () => {
+
+};
+
+const validation = async () => {
+
+}

@@ -1,20 +1,26 @@
-import { Sample } from '../models/sample';
+import { Post } from '../models/post';
 
-export const getSample = async (id) => {
-    return Sample.findById(id);
+export const getAllPostsOfCategory = async (category_id) => {
+    return Post.findById(id);
 };
 
-export const createSample = async ({ title, content }) => {
+export const createPost = async ({ title, content }) => {
 
-    /*
-     * TODO validation
-     * if (타이틀이나 컨텐츠가 올바르지 않아) {
-     *     throw new Error('글쓰기 실패')
-     * }
-     */
 
-    return Sample.create({
+    return Post.create({
         title,
         content,
     });
 };
+
+export const updatePost = async (id, post) => {
+  
+}
+
+export const deletePost = async (id) => {
+  return Post.deleteOne({ _id: id});
+}
+
+const validation = async () => {
+
+}

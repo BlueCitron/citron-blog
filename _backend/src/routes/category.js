@@ -1,11 +1,8 @@
 import express from 'express';
-import cors from 'cors';
+import { updateCategory, deleteCategory } from '../service/category'
 
+export const categoryRouter  = express.Router();
 
-const router = express.Router();
-
-router.get('/', function(req, res) {
-  res.json('Hello World');
+categoryRouter .get('/', function(req, res) {
+  res.json('Category Root');
 });
-
-export default router;
