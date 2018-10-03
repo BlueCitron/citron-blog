@@ -31,7 +31,7 @@ const UserSchema = new Schema({
     required: true
   },
   createdAt: { type: Date, default: Date.now },
-  updqtedAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
   lastLogin: { type: Date, default: Date.now },
   isDeleted: { type: Boolean, default: false },
   deletedAt: { type: Date, default: null },

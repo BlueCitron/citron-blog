@@ -1,23 +1,17 @@
 import { Comment } from '../models/comment';
 
 export const getSCommentByPostId = async (postId) => {
-    return Comment.find({ postId });
+    return Comment.find({ postId, isDeleted: false });
 };
 
-export const createComment = async ({ title, content }) => {
-  // validation()
-
-  return Comment.create();
+export const createComment = async ({ postId, content, createdBy, isChild, parent }) => {
+  return Comment.create({ postId, content, createdBy, isChild, parent });
 };
 
-export const updateComment = async () => {
-
+export const updateComment = async (_id, { content }) => {
+  return Comment.update({ _id }, { $set: { content, updatedAt: Date() }});
 };
 
-export const deleteComment = async () => {
-
+export const deleteComment = async (_id) => {
+  return Comment.update({ _id }, { $set: { isDeleted: true }});
 };
-
-const validation = async () => {
-
-}
