@@ -11,8 +11,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Schema = _mongoose.default.Schema;
 var CommentSchema = new Schema({
+  postId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'post'
+  },
   content: String,
-  createdBy: Schema.Types.ObjectId,
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'user'
+  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -27,7 +35,12 @@ var CommentSchema = new Schema({
   },
   parent: {
     type: Schema.Types.ObjectId,
-    default: null
+    default: null,
+    ref: 'comment'
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false
   }
 });
 

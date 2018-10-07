@@ -14,10 +14,14 @@ var _morgan = _interopRequireDefault(require("morgan"));
 
 var _index = _interopRequireDefault(require("./routes/index"));
 
+var _mongoose = _interopRequireDefault(require("mongoose"));
+
+var _cors = _interopRequireDefault(require("cors"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express.default)();
-var port = 8080;
+var port = 9090;
 app.use((0, _morgan.default)('dev'));
 app.use(_express.default.json());
 app.use(_express.default.urlencoded({
@@ -28,8 +32,15 @@ app.use(_bodyParser.default.urlencoded({
   extended: false
 }));
 app.use(_bodyParser.default.json());
+app.use((0, _cors.default)());
 app.use('/', _index.default); // open the server
 
 app.listen(port, function () {
   console.log("Server started listening on port ".concat(port));
 });
+
+_mongoose.default.connect('mongodb://49.247.204.250/bluecitron', {
+  useNewUrlParser: true
+}).then(function () {
+  console.log('MongoDB Connected -> 49.247.204.250/bluecitron');
+}).catch(console.error);

@@ -1,16 +1,5 @@
 <template>
 <v-container class="px-5">
-  <!-- <v-layout justify-start>
-    <v-alert
-    :value="true"
-    color="error"
-    icon="warning"
-    transition="scale-transition"
-    outline
-    >
-    제목을 입력해주세요.
-  </v-alert>
-  </v-layout> -->
   <v-card class="pa-3 mt-3">
     <v-layout row>
       <v-flex md2 class="mr-2">
@@ -30,7 +19,6 @@
       <v-btn color="secondary">취소</v-btn>
     </v-layout>
   </v-card>
-  {{newPost}}<hr/>
 </v-container>
 </template>
 <script>
@@ -40,7 +28,7 @@ export default {
   data: () => ({
     newPost: {
       category: '',
-      title: 'Hello',
+      title: '',
       content: ''
     },
     selectedCategory: '',

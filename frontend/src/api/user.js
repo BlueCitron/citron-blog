@@ -5,7 +5,10 @@ export default {
   fetch () {
     return axios.get(`${config.apiServer.url}/user`)
   },
-  login(loginInfo) {
-
+  auth (account, password) {
+    return axios.post(`${config.apiServer.url}/auth`, { account, password })
+  },
+  verify (token) {
+    return axios.get(`${config.apiServer.url}/auth/verify?token=${token}`)
   }
 }

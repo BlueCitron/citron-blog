@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import VueCookie from 'vue-cookie'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import axios from 'axios'
@@ -11,9 +12,8 @@ import 'tui-editor/dist/tui-editor.css' // editor ui
 import 'tui-editor/dist/tui-editor-contents.css' // editor content
 import 'highlight.js/styles/github.css' // code block highlight
 
-
-
 Vue.use(Vuetify)
+Vue.use(VueCookie)
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
 

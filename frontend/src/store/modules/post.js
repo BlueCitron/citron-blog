@@ -44,15 +44,19 @@ export const actions = {
   async write({ dispatch, rootGetters }, post) {
     // 필수 필드 및 선택 필드
     // { category, title, content(선택), createdBy, }
-    const createdBy = rootGetters['user/getUserInfo'][0]._id
+    const createdBy = rootGetters['user/getUserInfo']._id
     post = { createdBy,  ...post}
     let { data } = await postAPI.write(post)
     if(data == 'success..'){
       // 홈 화면으로 이동
       rootGetters.getMainInstance.$router.push('/')
     }
-
+  },
+  async deletePost({ dispatch }, post_id) {
+    let { data } = await postAPI.delete(post_id)
+    dispatch('refresh')
   }
+
 }
 
 export const mutations = {

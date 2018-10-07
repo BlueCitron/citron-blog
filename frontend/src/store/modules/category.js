@@ -25,11 +25,40 @@ export const actions = {
   async refresh ({ commit }) {
     let { data } = await categoryAPI.fetch()
     commit('setCategories', data)
-  }
+  },
+  async insertCategory ({ dispatch, rootGetters  }, category_name) {
+    // commit
+    console.log('Category name : ', category_name)
+    let category = {
+      name: category_name,
+      createdBy: rootGetters['user/getUserInfo']._id
+    }
+
+    let { data } = await categoryAPI.insert(category)
+    console.log('insert category..', data)
+    // refresh
+    dispatch('refresh')
+  },
+  async updateCategory ({ commit, dispatch  }, category) {
+    // commit
+    const { _id  } = category
+    let { data } = await categoryAPI.update(_id, category)
+    console.log('update category..', data)
+    // refresh
+    dispatch('refresh')
+  },
+  async deleteCategory ({ commit, dispatch  }, category) {
+    // commit
+    const { _id  } = category
+    let { data } = await categoryAPI.delete(_id)
+    console.log('delete category..', data)
+    // refresh
+    dispatch('refresh')
+  },
 }
 
 export const mutations = {
   setCategories (state, categories) {
     state.categories = categories
-  }
+  },
 }

@@ -42,7 +42,7 @@ var UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  updqtedAt: {
+  updatedAt: {
     type: Date,
     default: Date.now
   },
