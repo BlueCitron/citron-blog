@@ -24,4 +24,8 @@ const main = new Vue({
 }).$mount('#app')
 
 store.commit('setMainInstance', main)
+
 store.dispatch('user/refresh')
+store.dispatch('comment/refresh')
+store.dispatch('category/refresh')
+// store.dispatch('post/refresh') // 특정 카테고리 이동시 Refresh

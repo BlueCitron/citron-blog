@@ -1,6 +1,10 @@
 import { Comment } from '../models/comment';
 
-export const getSCommentByPostId = async (postId) => {
+export const getAllComments = async () => {
+    return Comment.find({ isDeleted: false });
+};
+
+export const getCommentByPostId = async (postId) => {
     return Comment.find({ postId, isDeleted: false });
 };
 

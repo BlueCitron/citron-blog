@@ -2,6 +2,7 @@
 <v-container>
   <v-layout justify-center align-center class="mt-1">
     <v-flex md7>
+      {{e1}}
       <v-stepper v-model="e1">
         <v-stepper-header>
           <v-stepper-step :complete="e1 > 1" step="1">STEP 01. 약관동의</v-stepper-step>
@@ -24,6 +25,7 @@
               <v-layout justify-end>
                 <v-checkbox :label="`동의합니다 `" v-model="checkbox"></v-checkbox>
               </v-layout>
+              {{checkbox}}
             </v-card>
             <v-btn color="warning" @click="e1 = 2">
               동의합니다
@@ -63,7 +65,9 @@ export default {
   data() {
     return {
       e1: 0,
-      yak: `회원가입약관을 대충 한번 만들어봤습니다.`
+      yak: `회원가입약관을 대충 한번 만들어봤습니다.`,
+      checkbox: false
+
     }
   }
 }

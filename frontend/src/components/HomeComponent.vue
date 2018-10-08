@@ -14,10 +14,14 @@ import ContentComponent from './layout/ContentComponent'
 import { mapGetters } from 'vuex'
 export default {
     components: { NavigationComponent, ToolbarComponent, ContentComponent },
+    data: () => ({
+      test: null
+    }),
     computed: {
       ...mapGetters(['getDrawer']),
-      ...mapGetters('user', ['getUserInfo'])
-    }
+      ...mapGetters('user', ['getUserInfo']),
+      ...mapGetters('comment', ['getComments', 'getCommentsByPostId'])
+    },
   }
 </script>
 <style>

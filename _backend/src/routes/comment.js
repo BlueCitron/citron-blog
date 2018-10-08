@@ -1,8 +1,29 @@
 import express from 'express';
-import { getSCommentByPostId, createComment, updateComment, deleteComment} from '../services/comment';
+import { getAllComments, getCommentByPostId, createComment, updateComment, deleteComment} from '../services/comment';
 
 export const commentRouter = express.Router();
 
+// 모든 댓글
+commentRouter.get('/', function(req, res) {
+
+  const respond = (result) => {
+    if(!result)
+      return res.status(404).json('Not Found..');
+    return res.json(result);
+  }
+
+  const handdleError = (error) => {
+    console.log(error);
+    return res.status(500).json('failure..');
+  }
+
+  getAllComments()
+    .then(respond)
+    .catch(handdleError);
+
+});
+
+// 특정 포스트의 댓글
 commentRouter.get('/:postId([0-9a-fA-F]{24})', function(req, res) {
 
   const { postId } = req.params;
@@ -18,7 +39,7 @@ commentRouter.get('/:postId([0-9a-fA-F]{24})', function(req, res) {
     return res.status(500).json('failure..');
   }
 
-  getSCommentByPostId(postId)
+  getCommentByPostId(postId)
     .then(respond)
     .catch(handdleError);
 
@@ -27,9 +48,10 @@ commentRouter.get('/:postId([0-9a-fA-F]{24})', function(req, res) {
 commentRouter.post('/', function(req, res) {
 
   const { comment } = req.body;
-
   const respond = (result) => {
-    return res.json('success..');
+    return res.json({
+      success: true
+    });
   }
 
   const handdleError = (error) => {
@@ -49,7 +71,9 @@ commentRouter.put('/:id([0-9a-fA-F]{24})', function(req, res) {
   const { comment } = req.body;
 
   const respond = (result) => {
-    return res.json('success..');
+    return res.json({
+      success: true
+    });
   }
 
   const handdleError = (error) => {
@@ -68,7 +92,9 @@ commentRouter.delete('/:id([0-9a-fA-F]{24})', function(req, res) {
   const { id } = req.params;
 
   const respond = (result) => {
-    return res.json('success..');
+    return res.json({
+      success: true
+    });
   }
 
   const handdleError = (error) => {

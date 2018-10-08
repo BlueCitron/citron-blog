@@ -28,7 +28,7 @@
                 <v-btn block large color="secondary" @click="auth(authInfo)" @keyup.enter="auth(authInfo)">로그인</v-btn>
               </v-card-actions>
               <v-card-actions>
-                <v-btn block large color="secondary">회원가입</v-btn>
+                <v-btn block large color="secondary" to="join">회원가입</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>

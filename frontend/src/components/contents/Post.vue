@@ -28,18 +28,37 @@
         <v-subheader>댓글 {{0}}개</v-subheader>
         <v-divider></v-divider>
         <v-layout>
-          <v-textarea label="댓글 달기"></v-textarea>
+          <v-textarea label="댓글 달기" v-model="newComment"></v-textarea>
         </v-layout>
         <v-layout justify-end>
-          <v-btn flat color="primary">댓글 등록</v-btn>
+          <v-btn
+          flat
+          color="primary"
+          @click="insertComment({ postId: post._id, content: newComment }); newComment='';"
+          >댓글 등록</v-btn>
         </v-layout>
 
-        <v-textarea
-          outline
-          :label="commentLabel()"
-          class="pl-5"
-          value="아 진짜 유용하네요 대박ㅋㅋ"
-        ></v-textarea>
+        <template v-for="item in getCommentsByPostId(this.post._id)">
+          <v-layout justify-space-between>
+            <v-subheader class="pl-5">
+            작성자 {{ post.createdBy }}
+            작성일 {{ post.createdAt }}
+            </v-subheader>
+            <v-btn flat icon color="secondary" @click="deleteComment(item)">
+              <v-icon>delete</v-icon>
+            </v-btn>
+          </v-layout>
+          <v-layout>
+            <v-textarea
+            solo
+            readonly
+            :label="commentLabel(item)"
+            class="pl-5"
+            :value="item.content"
+            ></v-textarea>
+          </v-layout>
+
+        </template>
   </v-card>
 </v-container>
 </template>
@@ -49,31 +68,33 @@ import Editor from 'tui-editor'
 import Viewer from 'tui-editor/dist/tui-editor-Viewer'
 export default {
   data: () => ({
-    post: null
+    post: null,
+    comments: null,
+    newComment: ''
   }),
   computed: {
     ...mapGetters('post', ['getPostById']),
-
+    ...mapGetters('comment', ['getAllComments', 'getCommentsByPostId'])
   },
   methods: {
     ...mapActions('post', ['deletePost']),
+    ...mapActions('comment', ['insertComment', 'deleteComment']),
     moveBackPage () {
       this.$router.go(-1)
     },
     commentLabel(comment) {
-      return `작성자 ${this.post.createdBy} 작성일 ${comment}`
+      return `작성자 ${this.post.createdBy} 작성일 ${comment.createdAt}`
     }
   },
   created() {
     this.post = this.$route.params.post
+    this.comments = this.getCommentsByPostId(this.post._id)
   },
   mounted() {
-    setTimeout(() => {
-      var editor = new Viewer({
-        el: document.querySelector('#viewer'),
-        initialValue: this.post.content
-      })
-    }, 100)
+    var editor = new Viewer({
+      el: document.querySelector('#viewer'),
+      initialValue: this.post.content
+    })
   }
 }
 </script>

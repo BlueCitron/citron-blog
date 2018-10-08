@@ -4,11 +4,12 @@ import Vuex from 'vuex'
 import * as post from './modules/post'
 import * as category from './modules/category'
 import * as user from './modules/user'
+import * as comment from './modules/comment'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: { post, category, user },
+  modules: { post, category, user, comment },
   state: { drawer: false, mainInstance: null },
   getters: {
     getDrawer: state => { return state.drawer },
