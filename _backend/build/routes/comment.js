@@ -11,9 +11,24 @@ var _comment = require("../services/comment");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var commentRouter = _express.default.Router();
+var commentRouter = _express.default.Router(); // 모든 댓글
+
 
 exports.commentRouter = commentRouter;
+commentRouter.get('/', function (req, res) {
+  var respond = function respond(result) {
+    if (!result) return res.status(404).json('Not Found..');
+    return res.json(result);
+  };
+
+  var handdleError = function handdleError(error) {
+    console.log(error);
+    return res.status(500).json('failure..');
+  };
+
+  (0, _comment.getAllComments)().then(respond).catch(handdleError);
+}); // 특정 포스트의 댓글
+
 commentRouter.get('/:postId([0-9a-fA-F]{24})', function (req, res) {
   var postId = req.params.postId;
 
@@ -27,13 +42,15 @@ commentRouter.get('/:postId([0-9a-fA-F]{24})', function (req, res) {
     return res.status(500).json('failure..');
   };
 
-  (0, _comment.getSCommentByPostId)(postId).then(respond).catch(handdleError);
+  (0, _comment.getCommentByPostId)(postId).then(respond).catch(handdleError);
 });
 commentRouter.post('/', function (req, res) {
   var comment = req.body.comment;
 
   var respond = function respond(result) {
-    return res.json('success..');
+    return res.json({
+      success: true
+    });
   };
 
   var handdleError = function handdleError(error) {
@@ -48,7 +65,9 @@ commentRouter.put('/:id([0-9a-fA-F]{24})', function (req, res) {
   var comment = req.body.comment;
 
   var respond = function respond(result) {
-    return res.json('success..');
+    return res.json({
+      success: true
+    });
   };
 
   var handdleError = function handdleError(error) {
@@ -62,7 +81,9 @@ commentRouter.delete('/:id([0-9a-fA-F]{24})', function (req, res) {
   var id = req.params.id;
 
   var respond = function respond(result) {
-    return res.json('success..');
+    return res.json({
+      success: true
+    });
   };
 
   var handdleError = function handdleError(error) {

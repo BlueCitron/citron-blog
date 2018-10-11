@@ -1,0 +1,9 @@
+[
+  {
+    "uid": "citron_backend",
+    "append": true,
+    "watch": true,
+    "script": "./build/app.js",
+    "watchDirectory": "build"
+  }
+]
