@@ -7,7 +7,7 @@
   <hr/>
   <v-layout row wrap>
     <v-flex md4 class="pa-3" v-for="item in getPostsWithPaging">
-      <v-card class="pointer" :to="{ name: 'PostView', params: { post: item }}"
+      <v-card class="pointer" :to="{ name: 'PostView', params: { post_id: item._id }}"
           raised >
         <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
         <v-card-title primary-title>
