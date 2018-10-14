@@ -12,8 +12,8 @@
         <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
         <v-card-title primary-title>
           <div>
-            <h3 class="headline mb-0">{{item.title.slice(0, 30)}}</h3>
-            <div>{{item.content.replace(/(<([^>]+)>)/gi, "").replace(/(&nbsp;)/gi, " ").slice(0, 40)}}</div>
+            <h3 class="headline mb-0">{{ item.title.slice(0, 30) }}</h3>
+            <div>{{ item.content.replace(/(<([^>]+)>)|nbsp;/gi, "").replace(/(&)/g," ").slice(0, 80) }}</div>
           </div>
         </v-card-title>
         <v-card-actions>

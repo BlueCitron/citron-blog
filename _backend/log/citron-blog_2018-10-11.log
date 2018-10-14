@@ -1,0 +1,431 @@
+21:51:13 error: (node:11488) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+21:51:17 info: 요청자: localhost URL: http://localhost
+21:51:17 info: [0mGET / [36m304 [0m10.810 ms - -[0m
+
+21:51:46 error: (node:9564) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+21:51:50 info: 요청자: localhost URL: http://localhost
+21:51:50 error: Some error kk
+21:51:50 info: [0mGET / [36m304 [0m26.086 ms - -[0m
+
+21:51:50 error: (node:11784) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+21:52:18 error: undefined
+21:52:23 info: 요청자: localhost URL: http://localhost
+21:52:23 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+21:52:23 info: [0mGET / [36m304 [0m18.224 ms - -[0m
+
+21:53:09 error: undefined
+23:26:04 info: 요청자: localhost
+23:26:04 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:26:04 info: [0mGET / [36m304 [0m14.456 ms - -[0m
+
+23:26:16 error: Error: listen EADDRINUSE :::9090
+    at Object._errnoException (util.js:992:11)
+    at _exceptionWithHostPort (util.js:1014:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1355:14)
+    at listenInCluster (net.js:1396:12)
+    at Server.listen (net.js:1480:7)
+    at Function.listen (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\application.js:618:24)
+    at Object.listen (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:37:5)
+    at Module._compile (module.js:652:30)
+    at Module._compile (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\pirates\lib\index.js:83:24)
+    at Module._extensions..js (module.js:663:10)
+    at Object.newLoader [as .js] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\pirates\lib\index.js:88:7)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at Object.<anonymous> (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\@babel\node\lib\_babel-node.js:224:23)
+23:26:16 error: undefined
+23:26:17 info: 요청자: localhost
+23:26:17 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:26:17 info: [0mGET / [36m304 [0m3.100 ms - -[0m
+
+23:26:33 error: Error: listen EADDRINUSE :::9090
+    at Object._errnoException (util.js:992:11)
+    at _exceptionWithHostPort (util.js:1014:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1355:14)
+    at listenInCluster (net.js:1396:12)
+    at Server.listen (net.js:1480:7)
+    at Function.listen (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\application.js:618:24)
+    at Object.listen (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:37:5)
+    at Module._compile (module.js:652:30)
+    at Module._compile (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\pirates\lib\index.js:83:24)
+    at Module._extensions..js (module.js:663:10)
+    at Object.newLoader [as .js] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\pirates\lib\index.js:88:7)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at Object.<anonymous> (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\@babel\node\lib\_babel-node.js:224:23)
+23:26:33 error: undefined
+23:26:36 info: 요청자: localhost
+23:26:36 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:26:36 info: [0mGET / [36m304 [0m9.849 ms - -[0m
+
+23:27:40 info: 요청자: localhost
+23:27:40 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:27:40 info: [0mGET / [36m304 [0m2.992 ms - -[0m
+
+23:27:45 error: undefined
+23:27:47 info: 요청자: localhost
+23:27:47 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:27:47 info: [0mGET / [36m304 [0m10.178 ms - -[0m
+
+23:32:30 info: 요청자: localhost
+23:32:30 error: Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:32:30 info: [0mGET / [36m304 [0m6.421 ms - -[0m
+
+23:32:55 undefined
+23:32:56 info: 요청자: localhost
+23:32:56 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:32:56 info: [0mGET / [36m304 [0m16.542 ms - -[0m
+
+23:33:15 info: 요청자: localhost
+23:33:15 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:33:15 info: [0mGET / [36m304 [0m2.509 ms - -[0m
+
+23:37:24 undefined
+23:37:40 info: 요청자: localhost
+23:37:40 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:40 info: [0mGET / [36m304 [0m11.574 ms - -[0m
+
+23:37:44 info: 요청자: localhost
+23:37:44 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:44 info: [0mGET / [36m304 [0m4.375 ms - -[0m
+
+23:37:44 info: 요청자: localhost
+23:37:44 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:44 info: [0mGET / [36m304 [0m2.939 ms - -[0m
+
+23:37:45 info: 요청자: localhost
+23:37:45 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:45 info: [0mGET / [36m304 [0m1.712 ms - -[0m
+
+23:37:45 info: 요청자: localhost
+23:37:45 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:45 info: [0mGET / [36m304 [0m4.230 ms - -[0m
+
+23:37:45 info: 요청자: localhost
+23:37:45 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:45 info: [0mGET / [36m304 [0m2.373 ms - -[0m
+
+23:37:56 Error: listen EADDRINUSE :::9090
+    at Object._errnoException (util.js:992:11)
+    at _exceptionWithHostPort (util.js:1014:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1355:14)
+    at listenInCluster (net.js:1396:12)
+    at Server.listen (net.js:1480:7)
+    at Function.listen (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\application.js:618:24)
+    at Object.listen (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:37:5)
+    at Module._compile (module.js:652:30)
+    at Module._compile (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\pirates\lib\index.js:83:24)
+    at Module._extensions..js (module.js:663:10)
+    at Object.newLoader [as .js] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\pirates\lib\index.js:88:7)
+    at Module.load (module.js:565:32)
+    at tryModuleLoad (module.js:505:12)
+    at Function.Module._load (module.js:497:3)
+    at Function.Module.runMain (module.js:693:10)
+    at Object.<anonymous> (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\@babel\node\lib\_babel-node.js:224:23)
+23:37:56 undefined
+23:37:59 info: 요청자: localhost
+23:37:59 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:37:59 info: [0mGET / [36m304 [0m1.664 ms - -[0m
+
+23:38:02 info: 요청자: localhost
+23:38:02 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:38:02 info: [0mGET / [36m304 [0m2.155 ms - -[0m
+
+23:38:41 undefined
+23:38:44 info: 요청자: localhost
+23:38:44 Error: Some error kk
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\src/app.js:24:14
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:275:10)
+    at cors (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:317:13)
+    at C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:284:7
+    at Function.process_params (C:\Users\Theleap\Desktop\Javascript\Project\citron-blog\_backend\node_modules\express\lib\router\index.js:335:12)
+23:38:44 info: [0mGET / [36m304 [0m19.182 ms - -[0m
+
+23:39:26 undefined
