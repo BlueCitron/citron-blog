@@ -1,6 +1,6 @@
 <template>
 <v-container class="px-5">
-  <v-card class="pa-3 mt-3">
+  <v-card class="pa-4 mt-3">
     <v-layout row>
       <v-flex md2 class="mr-2">
         <v-combobox
@@ -12,7 +12,22 @@
         <v-text-field v-model="newPost.title"></v-text-field>
       </v-flex>
     </v-layout>
+    <v-layout>
+      <v-flex md1>
+        <v-subheader>미리보기 이미지</v-subheader>
+      </v-flex>
+      <v-flex md1>
+        <v-btn flat color="success">첨부</v-btn>
+      </v-flex>
+      <!-- <v-flex>
+        <v-text-field
+          value="10.00"
+          prepend-icon='attach_file'
 
+        ></v-text-field>
+        <input type="file" style="display:none" ref="image" accept="image/*" @change="onFilePicked" />
+      </v-flex> -->
+    </v-layout>
     <div id="editor"></div>
     <v-layout justify-end>
       <v-btn color="warning" @click="validation(newPost)">작성</v-btn>

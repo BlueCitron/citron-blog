@@ -1,9 +1,10 @@
 <template>
 <div>
-  <v-app id="inspire">
+  <v-app id="inspire" class="mb-5">
     <navigation-component :userInfo="getUserInfo"></navigation-component>
     <toolbar-component></toolbar-component>
     <content-component></content-component>
+    <footer-component></footer-component>
   </v-app>
 </div>
 </template>
@@ -11,11 +12,11 @@
 import NavigationComponent from './layout/NavigationComponent'
 import ToolbarComponent from './layout/ToolbarComponent'
 import ContentComponent from './layout/ContentComponent'
+import FooterComponent from './layout/FooterComponent'
 import { mapGetters } from 'vuex'
 export default {
-    components: { NavigationComponent, ToolbarComponent, ContentComponent },
+    components: { NavigationComponent, ToolbarComponent, ContentComponent, FooterComponent },
     data: () => ({
-      test: null
     }),
     computed: {
       ...mapGetters(['getDrawer']),

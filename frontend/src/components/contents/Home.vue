@@ -1,31 +1,37 @@
 <template>
 <v-container>
-  <v-layout justify-center align-center class="mt-1">
-    <v-flex md12>
-      <v-carousel hide-delimiters>
-        <v-carousel-item v-for="(item,i) in items" :key="i" :src="item.src"></v-carousel-item>
-      </v-carousel>
+  <v-subheader>최근에 올라온 글</v-subheader>
+  <v-divider class="my-1"/>
+  <v-layout wrap>
+    <v-flex md4 class="pa-3" v-for="item in list">
+      <v-card
+      class="pointer"
+      raised >
+        <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
+        <v-card-title primary-title>
+          <div class="text-md-left">
+            <h3 class="headline mb-0">제목</h3>
+            <div>컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ컨텐츠 ㅎㅎ</div>
+          </div>
+        </v-card-title>
+        <v-card-actions>
+          <v-btn flat color="orange">조회수  5957</v-btn>
+          <v-btn flat color="orange">댓글  0</v-btn>
+        </v-card-actions>
+      </v-card>
     </v-flex>
+
   </v-layout>
+  <v-layout row justify-center>
+    <v-pagination v-model="list" :length="list.length"></v-pagination>
+  </v-layout>
+
 </v-container>
 </template>
 <script>
 export default {
   data: () => ({
-    items: [
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg'
-          },
-          {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
-          },
-          {
-            src: 'https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-318271.jpg'
-          }
-        ]
+    list: [1, 2, 3, 4, 5, 6, 7, 8]
   })
 }
 </script>

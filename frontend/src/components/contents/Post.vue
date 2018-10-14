@@ -40,10 +40,20 @@
 
         <template v-for="item in getCommentsByPostId(this.post._id)">
           <v-layout justify-space-between>
-            <v-subheader class="pl-5">
-            작성자 {{ post.createdBy }}
-            작성일 {{ post.createdAt }}
-            </v-subheader>
+              <v-subheader class="pl-5">
+                <v-flex>
+                  <v-avatar
+                  slot="activator"
+                  size="36px"
+                  >
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH_MYtiUPza5pZM8aEwdVPSNKo0jpFG6wp8BvRqq-yeCW1xATU">
+                  </v-avatar>
+                </v-flex>
+                <v-flex>
+                  작성자 {{ post.createdBy.nickname }}
+                  작성일 {{ post.createdAt }}
+                </v-flex>
+              </v-subheader>
             <v-btn flat icon color="secondary" @click="deleteComment(item)">
               <v-icon>delete</v-icon>
             </v-btn>
