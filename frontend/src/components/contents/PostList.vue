@@ -1,9 +1,9 @@
 <template>
 <v-container>
   <template name="contentExist" v-if="getPostsWithPaging.length != 0">
-  <v-layout justify-end>
+  <!-- <v-layout justify-end>
     <h2 class="pr-3 pb-3">{{getCategoryNameById(this.$route.params.category_id)}}</h2>
-  </v-layout>
+  </v-layout> -->
   <hr/>
   <v-layout row wrap>
     <v-flex md4 class="pa-3" v-for="item in getPostsWithPaging">
