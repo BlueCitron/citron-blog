@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: { post, category, user, comment },
-  state: { drawer: false, mainInstance: null },
+  state: { drawer: false, mainInstance: null, nowCategory: null },
   getters: {
     getDrawer: state => { return state.drawer },
     getMainInstance: state => { return state.mainInstance }
@@ -24,8 +24,10 @@ export default new Vuex.Store({
     },
     moveCategory ({ dispatch, state, commit }, category_id) {
       // post refresh
+      // category set
       // url 이동
       commit('post/initPageInfo')
+      commit('setNowCategory', category_id)
       const url = `/category/${category_id}`
       dispatch('post/refresh', category_id)
       state.mainInstance.$router.push(url)
@@ -42,6 +44,9 @@ export default new Vuex.Store({
     },
     setMainInstance (state, instance) {
       state.mainInstance = instance;
+    },
+    setNowCategory (state, category) {
+      state.nowCategory = category
     }
   }
 

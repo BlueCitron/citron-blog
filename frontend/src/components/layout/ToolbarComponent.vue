@@ -4,7 +4,7 @@
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat to="/">BlueCitron's Blog</v-btn>
       </v-toolbar-items>
-      <h2>{{ getCategoryNameById(this.$route.params.category_id) }} ({{ getPostsWithPaging.length }})</h2>
+      <h2>{{ setCategoryName() }}</h2>
       <v-flex md2 d-flex justify-start align-center>
         <v-text-field
         label="Search.."
@@ -29,11 +29,20 @@ export default {
   computed: {
     ...mapGetters('user', ['getSignedInState']),
     ...mapGetters('category', ['getCategoryNameById']),
-    ...mapGetters('post', ['getPostsWithPaging'])
+    ...mapGetters('post', ['getPostsWithPaging', 'getPostById'])
   },
   methods: {
     ...mapActions(['changeDrawer']),
-    ...mapActions('user', ['signout'])
+    ...mapActions('user', ['signout']),
+    setCategoryName () {
+      if(this.$route.params.category_id)
+        return `${this.getCategoryNameById(this.$route.params.category_id)} (${this.getPostsWithPaging.length})`
+      if (this.$route.path.indexOf('/post') != -1) {
+        const post_id = this.$route.path.split('/')[2]
+        const { category } = this.getPostById(post_id)
+        return `${category.name} (${this.getPostsWithPaging.length})`
+      }
+    }
 
   },
   created() {
