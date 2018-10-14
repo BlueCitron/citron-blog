@@ -10,8 +10,8 @@ export const getters = {
   getCategories: state => { return state.categories },
   getCategoryNames: state => { return state.categories.map(category => category.name )},
   getCategoryNameById: state => category_id => {
-    const { name } = state.categories.find(category => category._id == category_id)
-    return name
+    const result = state.categories.find(category => category._id == category_id)
+    return result == undefined ? '' : result.name
   },
   getCategoryIdByName: state => name => {
     if(state.categories.find(category => category.name == name)){

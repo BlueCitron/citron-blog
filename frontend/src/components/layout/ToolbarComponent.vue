@@ -1,23 +1,22 @@
 <template>
   <v-toolbar color="yellow" light fixed app>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat to="/">BlueCitron's Blog</v-btn>
-    </v-toolbar-items>
-    <v-spacer></v-spacer>
-    <v-layout align-center justify-end row>
-      <v-flex xs12 sm6 md4>
+    <v-layout justify-space-between align-center>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat to="/">BlueCitron's Blog</v-btn>
+      </v-toolbar-items>
+      <h2>{{ getCategoryNameById(this.$route.params.category_id) }} ({{ getPostsWithPaging.length }})</h2>
+      <v-flex md2 d-flex justify-start align-center>
         <v-text-field
         label="Search.."
         append-icon="search"
+        class="mr-3"
         ></v-text-field>
-      </v-flex>
-      <v-flex xs 2 sm1 md1>
         <router-link to="/login">
           <v-icon light v-if="!getSignedInState">vpn_key</v-icon>
         </router-link>
         <v-icon light v-if="getSignedInState" @click="signout">exit_to_app</v-icon>
+        <v-toolbar-side-icon @click.stop="changeDrawer" class="ml-3"></v-toolbar-side-icon>
       </v-flex>
-      <v-toolbar-side-icon @click.stop="changeDrawer"></v-toolbar-side-icon>
     </v-layout>
   </v-toolbar>
 </template>
@@ -28,7 +27,9 @@ export default {
 
   }),
   computed: {
-    ...mapGetters('user', ['getSignedInState'])
+    ...mapGetters('user', ['getSignedInState']),
+    ...mapGetters('category', ['getCategoryNameById']),
+    ...mapGetters('post', ['getPostsWithPaging'])
   },
   methods: {
     ...mapActions(['changeDrawer']),
