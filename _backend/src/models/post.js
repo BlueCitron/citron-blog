@@ -10,7 +10,8 @@ const PostSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   viewCount: { type: Number, default: 0 },
-  isDeleted: { type: Boolean, default: false }
+  isDeleted: { type: Boolean, default: false },
+  previewImage: { type: String, default: '' }
 })
 
 export const Post = mongoose.model('post', PostSchema);

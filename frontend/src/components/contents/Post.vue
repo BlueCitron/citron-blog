@@ -99,6 +99,7 @@ export default {
   created() {
     this.post = this.getPostById(this.$route.params.post_id)
     this.comments = this.getCommentsByPostId(this.post._id)
+    console.log('Post : ', this.post)
   },
   mounted() {
     var editor = new Viewer({

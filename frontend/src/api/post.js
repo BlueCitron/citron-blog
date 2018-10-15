@@ -10,5 +10,9 @@ export default {
   },
   delete (post_id) {
     return axios.delete(`${config.apiServer.url}/post/${post_id}`)
+  },
+  latest () {
+    return axios.get(`${config.apiServer.url}/post/latest`)
   }
+
 }

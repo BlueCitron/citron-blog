@@ -5,6 +5,7 @@ export const namespaced = true
 
 export const state = {
   posts: [],
+  latestPosts: [],
   pageInfo: {
     currentPage: 1,
     perPage: 9,
@@ -33,11 +34,15 @@ export const getters = {
   getPageInfo: state => {
     return state.pageInfo
   },
-
+  getLatestPosts: state => { return state.latestPosts }
 }
 
 export const actions = {
-  async refresh({ commit, state }, category_id) {
+  async latestPosts ({ commit }) {
+    let { data } = await postAPI.latest()
+    commit('setLatestPosts', data)
+  },
+  async refresh({ commit }, category_id) {
     let { data } = await postAPI.fetch(category_id)
     commit('setPosts', data)
   },
@@ -62,6 +67,9 @@ export const actions = {
 export const mutations = {
   setPosts (state, posts) {
     state.posts = posts;
+  },
+  setLatestPosts (state, latestPosts) {
+    state.latestPosts = latestPosts
   },
   setPerPage (state, perPage) {
     state.pageInfo.perPage = perPage

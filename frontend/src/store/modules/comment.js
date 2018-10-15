@@ -8,7 +8,10 @@ export const state = {
 
 export const getters = {
   getComments: state => { return state.comments },
-  getCommentsByPostId: state => post_id => { return state.comments.filter(comment => comment.postId == post_id) }
+  getCommentsByPostId: state => post_id => { return state.comments.filter(comment => comment.postId == post_id) },
+  getLatestComments: state => { return state.comments.sort((a, b) => {
+    return new Date(b.createdAt) - new Date(a.createdAt)
+  }).splice(0, 5)}
 }
 
 export const actions = {

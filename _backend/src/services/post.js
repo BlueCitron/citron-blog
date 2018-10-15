@@ -1,5 +1,9 @@
 import { Post } from '../models/post';
 
+export const getLatestPosts = async () => {
+    return Post.find({ isDeleted: false}).populate('category', 'name').populate('createdBy', 'nickname').sort({ createdAt: 'desc' });
+};
+
 export const getAllPostsOfCategory = async (category_id) => {
     return Post.find({ category: category_id, isDeleted: false}).populate('category', 'name').populate('createdBy', 'nickname');
 };
@@ -13,16 +17,13 @@ export const getPostsOfCategoryWithPaging = async (category_id, page, perPage) =
     .populate('category', 'name').populate('createdBy', 'nickname')
 }
 
-export const createPost = async ({ category, title, content, createdBy }) => {
-    console.log('category : ', category)
-    console.log('title : ', title)
-    console.log('content : ', content)
-    console.log('createdBy : ', createdBy)
+export const createPost = async ({ category, title, content, createdBy, previewImage }) => {
     return Post.create({
         category,
         title,
         content,
-        createdBy
+        createdBy,
+        previewImage
     });
 };
 
