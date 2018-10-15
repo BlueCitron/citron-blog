@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllPostsOfCategory, getPostsOfCategoryWithPaging, createPost, updatePost, deletePost } from '../services/post';
+import { getLatestPosts, getAllPostsOfCategory, getPostsOfCategoryWithPaging, createPost, updatePost, deletePost } from '../services/post';
 
 export const postRouter = express.Router();
 
@@ -23,6 +23,24 @@ export const postRouter = express.Router();
 //     .catch(handdleError);
 //
 // });
+
+postRouter.get('/latest', function(req, res) {
+
+  const respond = (result) => {
+    if(!result)
+      return res.status(404).json('Not Found..');
+    return res.json(result);
+  }
+
+  const handdleError = (error) => {
+    console.log(error);
+    return res.status(500).json('failure..');
+  }
+
+  getLatestPosts()
+    .then(respond)
+    .catch(handdleError);
+});
 
 postRouter.get('/:category([0-9a-fA-F]{24})', function(req, res) {
 

@@ -26,10 +26,7 @@
         <v-subheader>최근에 달릿 댓글</v-subheader>
         <v-divider class="my-1"/>
         <v-layout column justify-start align-start>
-          <div class="grey--text">하하하하하</div>
-          <div class="grey--text">하하하하하</div>
-          <div class="grey--text">하하하하하</div>
-          <div class="grey--text">하하하하하</div>
+          <div class="grey--text" v-for="item in getLatestComments">{{ item.content }}</div>
         </v-layout>
       </v-flex>
       <v-flex class="px-5 mt-3">
@@ -55,6 +52,8 @@ export default {
   data: () => ({
 
   }),
-
+  computed: {
+    ...mapGetters('comment', ['getComments', 'getLatestComments'])
+  },
 }
 </script>

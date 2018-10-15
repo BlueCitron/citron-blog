@@ -1,32 +1,41 @@
 <template>
 <v-container class="px-5">
   <v-card class="pa-4 mt-3">
-    <v-layout row>
-      <v-flex md2 class="mr-2">
-        <v-combobox
-        v-model="selectedCategory"
-        :items="getCategoryNames"
-        ></v-combobox>
-      </v-flex>
-      <v-flex>
-        <v-text-field v-model="newPost.title"></v-text-field>
-      </v-flex>
-    </v-layout>
     <v-layout>
-      <v-flex md1>
-        <v-subheader>미리보기 이미지</v-subheader>
+      <v-flex md10>
+        <v-layout column>
+          <v-flex>
+            <v-layout>
+              <v-flex md2 class="px-3">
+                <v-combobox
+                v-model="selectedCategory"
+                :items="getCategoryNames"
+                ></v-combobox>
+              </v-flex>
+              <v-flex md10 class="px-3">
+                <v-text-field v-model="newPost.title"></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+          <v-flex>
+            <v-layout>
+              <v-flex md2><v-btn flat color="success" @click="pickFile">첨부</v-btn></v-flex>
+              <v-flex md10>
+                <v-text-field
+                :value="imageName"
+                prepend-icon="attach_file"
+                readonly
+                ></v-text-field>
+                <input type="file" style="display:none" ref="image" accept="image/*" @change="onFilePicked" />
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
       </v-flex>
-      <v-flex md1>
-        <v-btn flat color="success">첨부</v-btn>
+      <v-flex md2>
+        <img :src="newPost.previewImage" height="130" v-if="newPost.previewImage"/>
+        <h4 v-if="!newPost.previewImage">이미지 미리보기</h4>
       </v-flex>
-      <!-- <v-flex>
-        <v-text-field
-          value="10.00"
-          prepend-icon='attach_file'
-
-        ></v-text-field>
-        <input type="file" style="display:none" ref="image" accept="image/*" @change="onFilePicked" />
-      </v-flex> -->
     </v-layout>
     <div id="editor"></div>
     <v-layout justify-end>
@@ -44,10 +53,12 @@ export default {
     newPost: {
       category: '',
       title: '',
-      content: ''
+      content: '',
+      previewImage: ''
     },
     selectedCategory: '',
-    editor: null
+    editor: null,
+    imageName: ''
   }),
   computed: {
     ...mapGetters('category', ['getCategories', 'getCategoryNames', 'getCategoryIdByName']),
@@ -66,7 +77,28 @@ export default {
         post.content = this.editor.getHtml()
         this.write(post)
       }
+    },
+    pickFile () {
+      this.$refs.image.click()
+    },
+    onFilePicked (e) {
+      const files = e.target.files
+      if (files[0] !== undefined) {
+        this.imageName = files[0].name
+        if (this.imageName.lastIndexOf('.') <= 0) {
+          return
+        }
+        const fr = new FileReader()
+        fr.readAsDataURL(files[0])
+        fr.addEventListener('load', () => {
+          this.newPost.previewImage = fr.result
+        })
+      } else {
+        this.imageName = ''
+        this.newPost.previewImage = ''
+      }
     }
+
   },
   mounted() {
     this.editor = new Editor({
