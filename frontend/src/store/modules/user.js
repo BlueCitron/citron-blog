@@ -5,7 +5,10 @@ export const namespaced = true
 export const state = {
   isSignedIn: false,
   accessToken: null,
-  userInfo: null
+  userInfo: {
+    nickname: '',
+    lastLogin: ''
+  }
 }
 
 export const getters = {
@@ -15,7 +18,7 @@ export const getters = {
 }
 
 export const actions = {
-  async refresh ({ dispatch, state, rootGetters }) {
+  async refresh ({ dispatch, state, rootGetters, commit }) {
     const token = rootGetters.getMainInstance.$cookie.get('accessToken')
     if (token) {
       state.accessToken = token

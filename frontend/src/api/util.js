@@ -1,19 +1,15 @@
 import axios from 'axios'
+import config from '../config/config'
 
 export default {
   // 방문자 수
   getVisitCount () {
-
-  },
-
-  // 공지사항
-  getNotice () {
-
+    return axios.get(`${config.apiServer.url}/util/postview/${post_id}`)
   },
 
   // 조회수
-  viewPost () {
-
+  viewPost (post_id) {
+    return axios.get(`${config.apiServer.url}/util/postview/${post_id}`)
   },
 
 

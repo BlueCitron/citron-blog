@@ -1,7 +1,7 @@
 <template>
 <div>
   <v-app id="inspire" class="mb-5">
-    <navigation-component :userInfo="getUserInfo"></navigation-component>
+    <navigation-component></navigation-component>
     <toolbar-component></toolbar-component>
     <content-component></content-component>
     <footer-component></footer-component>

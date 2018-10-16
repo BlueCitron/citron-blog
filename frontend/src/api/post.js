@@ -13,6 +13,8 @@ export default {
   },
   latest () {
     return axios.get(`${config.apiServer.url}/post/latest`)
+  },
+  getNotices () {
+    return axios.get(`${config.apiServer.url}/post/notices`)
   }
-
 }

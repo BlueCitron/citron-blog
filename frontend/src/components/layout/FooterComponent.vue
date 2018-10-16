@@ -6,10 +6,11 @@
         <v-subheader>공지사항</v-subheader>
         <v-divider class="my-1"/>
         <v-layout column justify-start align-start>
-          <div class="grey--text">하하하하하</div>
-          <div class="grey--text">하하하하하</div>
-          <div class="grey--text">하하하하하</div>
-          <div class="grey--text">하하하하하</div>
+          <div
+          class="grey--text cursor-pointer"
+          v-for="item in getNotices"
+          @click=""
+          >{{ item.title }}</div>
         </v-layout>
       </v-flex>
       <v-flex class="px-3" v-if="false">
@@ -26,7 +27,13 @@
         <v-subheader>최근에 달릿 댓글</v-subheader>
         <v-divider class="my-1"/>
         <v-layout column justify-start align-start>
-          <div class="grey--text" v-for="item in getLatestComments">{{ item.content }}</div>
+          <div
+          class="grey--text cursor-pointer"
+          v-for="item in getLatestComments">
+          {{
+            item.content.length > 30 ? item.content.slice(0, 30) + '...' : item.content
+          }}
+        </div>
         </v-layout>
       </v-flex>
       <v-flex class="px-5 mt-3">
@@ -53,7 +60,14 @@ export default {
 
   }),
   computed: {
-    ...mapGetters('comment', ['getComments', 'getLatestComments'])
+    ...mapGetters('post', ['getNotices']),
+    ...mapGetters('comment', ['getLatestComments']),
   },
+  methods: {
+    ...mapActions('post', ['refresh'])
+  },
+  created () {
+    this.refresh('5bc56bb75a5d4d5894c07c82')
+  }
 }
 </script>

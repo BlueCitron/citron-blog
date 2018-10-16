@@ -55,9 +55,7 @@ export default {
   mounted() {
     const { category_id } = this.$route.params
     this.refresh(category_id)
-    const item = this.getPostsWithPaging[0]
-    console.log('Check : ', typeof(item.content.replace(/(<([^>]+)>)/gi, ""))
-    )
+    
   }
 }
 </script>

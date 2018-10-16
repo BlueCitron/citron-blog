@@ -34,7 +34,11 @@ export const getters = {
   getPageInfo: state => {
     return state.pageInfo
   },
-  getLatestPosts: state => { return state.latestPosts }
+  getLatestPosts: state => {
+    //const length = state.latestPosts.length
+    return state.latestPosts.slice(0, 9).filter(post => post.category.name != '공지사항')
+  },
+  getNotices: state => { return state.posts.filter(post => post.category.name == '공지사항')}
 }
 
 export const actions = {
@@ -60,8 +64,7 @@ export const actions = {
   async deletePost({ dispatch }, post_id) {
     let { data } = await postAPI.delete(post_id)
     dispatch('refresh')
-  }
-
+  },
 }
 
 export const mutations = {

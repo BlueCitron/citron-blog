@@ -3,7 +3,7 @@
   <v-layout justify-center>
     <v-flex md5>
       <v-list two-line class="px-2">
-        <template v-for="(item, index) in getCategories">
+        <template v-for="(item, index) in getCategories" v-if="item.name != '공지사항'">
           <v-divider v-if="index != 0"></v-divider>
           <v-list-tile>
             {{ item.name }}

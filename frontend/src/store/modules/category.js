@@ -28,14 +28,12 @@ export const actions = {
   },
   async insertCategory ({ dispatch, rootGetters  }, category_name) {
     // commit
-    console.log('Category name : ', category_name)
     let category = {
       name: category_name,
       createdBy: rootGetters['user/getUserInfo']._id
     }
 
     let { data } = await categoryAPI.insert(category)
-    console.log('insert category..', data)
     // refresh
     dispatch('refresh')
   },
