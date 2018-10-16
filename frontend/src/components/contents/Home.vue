@@ -38,7 +38,6 @@ export default {
   },
   created () {
     this.latestPosts()
-    this.refresh('5bc56bb75a5d4d5894c07c82')
   }
 }
 </script>

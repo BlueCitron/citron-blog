@@ -14,8 +14,9 @@ export const getUserByAccount = async (account) => {
   return User.find({ account });
 };
 
-export const createUser = async ({ acccountType, account, password, nickname, email }) => {
-  return User.create({ acccountType, account, password, nickname, email });
+export const createUser = async ({ account, password, nickname, email }) => {
+  const encryptedPassword = crypto.createHmac('sha256', SECRET).update(password).digest('base64')
+  return User.create({ account, password: encryptedPassword, nickname, email });
 };
 
 export const updateUser = async (_id, { nickname, email }) => {

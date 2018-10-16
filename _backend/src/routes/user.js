@@ -10,13 +10,19 @@ userRouter.get('/', function(req, res) {
 
   const respond = (result) => {
     if(!result)
-      return res.status(404).json('Not Found..');
+      return res.status(404).json({
+        success: false,
+        message: '해당 하는 유저를 찾을 수 없습니다.'
+      });
     return res.json(result);
   }
 
   const handdleError = (error) => {
     console.log(error);
-    return res.status(500).json('failure..');
+    return res.status(500).json({
+      success: false,
+      message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
+    });
   }
 
   getAllUsers()
@@ -32,13 +38,19 @@ userRouter.get('/:id([0-9a-fA-F]{24})', function(req, res) {
 
   const respond = (result) => {
     if(!result)
-      return res.status(404).json('Not Found..');
+      return res.status(404).json({
+        success: false,
+        message: '해당 하는 유저를 찾을 수 없습니다.'
+      });
     return res.json(result);
   }
 
   const handdleError = (error) => {
     console.log(error);
-    return res.status(500).json('failure..');
+    return res.status(500).json({
+      success: false,
+      message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
+    });
   }
 
   getUserById(id)
@@ -50,18 +62,25 @@ userRouter.get('/:id([0-9a-fA-F]{24})', function(req, res) {
 // 유저 등록
 userRouter.post('/', function(req, res) {
 
-  const { user } = req.body;
+  const { account, password, nickname, email } = req.body;
 
   const respond = (result) => {
-    return res.json('success.. ');
+    const { _id, account, nickname } = result
+    return res.json({
+      success: true,
+      _id, account, nickname
+    });
   }
 
   const handdleError = (error) => {
     console.log(error);
-    return res.status(500).json('failure..');
+    return res.status(500).json({
+      success: false,
+      message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
+    });
   }
 
-  createUser(user)
+  createUser({ account, password, nickname, email })
     .then(respond)
     .catch(handdleError);
 });
@@ -73,12 +92,18 @@ userRouter.put('/:id([0-9a-fA-F]{24})', function(req, res) {
   const { user } = req.body;
 
   const respond = (result) => {
-    return res.json('success.. ');
+    return res.json({
+      success: true,
+      user
+    });
   }
 
   const handdleError = (error) => {
     console.log(error);
-    return res.status(500).json('failure..');
+    return res.status(500).json({
+      success: false,
+      message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
+    });
   }
 
   updateUser(id, user)
@@ -89,7 +114,7 @@ userRouter.put('/:id([0-9a-fA-F]{24})', function(req, res) {
 
 // 패스워드 변경
 userRouter.put('/password/:id([0-9a-fA-F]{24})', function(req, res) {
-  console.log('Check')
+
   const { id } = req.params;
   const { password } = req.body;
 
@@ -103,6 +128,7 @@ userRouter.put('/password/:id([0-9a-fA-F]{24})', function(req, res) {
     console.log(error);
     return res.status(500).json({
       success: false,
+      message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
     });
   }
 
@@ -120,13 +146,19 @@ userRouter.delete('/:id([0-9a-fA-F]{24})', function(req, res) {
 
   const respond = (result) => {
     if(!result)
-      return res.status(404).json('Not Found..');
+      return res.status(404).json({
+        success: false,
+        message: '해당하는 유저를 찾을 수 없습니다.'
+      });
     return res.json(result);
   }
 
   const handdleError = (error) => {
     console.log(error);
-    return res.status(500).json('failure..');
+    return res.status(500).json({
+      success: false,
+      message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
+    });
   }
 
   deleteUser(id)
