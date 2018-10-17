@@ -34,7 +34,8 @@
           <v-btn
           flat
           color="primary"
-          @click="insertComment({ postId: post._id, content: newComment }); newComment='';"
+          @click="insertComment({ postId: post._id, content: newComment })
+                    .then((result)=>{if(result) newComment=''});"
           >댓글 등록</v-btn>
         </v-layout>
 
@@ -62,12 +63,11 @@
             <v-textarea
             solo
             readonly
-            :label="commentLabel(item)"
             class="pl-5"
             :value="item.content"
             ></v-textarea>
           </v-layout>
-
+          {{item}}
         </template>
   </v-card>
 </v-container>
@@ -78,15 +78,21 @@ import Editor from 'tui-editor'
 import Viewer from 'tui-editor/dist/tui-editor-Viewer'
 export default {
   data: () => ({
-    post: null,
+    // post: null,
     comments: null,
     newComment: ''
   }),
+  props: {
+    post: {
+      type: Object
+    }
+  },
   computed: {
     ...mapGetters('post', ['getPostById']),
     ...mapGetters('comment', ['getAllComments', 'getCommentsByPostId'])
   },
   methods: {
+    // ...mapActions('category', ['deletePost']),
     ...mapActions('post', ['deletePost']),
     ...mapActions('comment', ['insertComment', 'deleteComment']),
     ...mapActions('util', ['view']),
@@ -97,8 +103,10 @@ export default {
       return `작성자 ${this.post.createdBy} 작성일 ${comment.createdAt}`
     }
   },
+  beforeCreate() {
+    //this.post = this.$route.params.post
+  },
   created() {
-    this.post = this.getPostById(this.$route.params.post_id)
     this.comments = this.getCommentsByPostId(this.post._id)
     this.view(this.post)
   },

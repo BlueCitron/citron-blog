@@ -6,7 +6,7 @@
     <v-flex md4 class="pa-3" v-for="item in getLatestPosts" v-if="getLatestPosts.length != 0">
       <v-card
       class="pointer"
-      :to="{ name: 'PostView', params: { post_id: item._id }}"
+      :to="{ name: 'PostView', params: { post_id: item._id, post: item }}"
       raised >
         <v-img :src="item.previewImage" aspect-ratio="2"></v-img>
         <v-card-title primary-title>

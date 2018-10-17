@@ -10,5 +10,8 @@ export default {
   },
   verify (token) {
     return axios.get(`${config.apiServer.url}/auth/verify?token=${token}`)
-  }
+  },
+  create ({ account, password, nickname, email }) {
+    return axios.post(`${config.apiServer.url}/user`, { account, password, nickname, email })
+  },
 }

@@ -20,7 +20,7 @@ export const actions = {
       await utilAPI.viewPost(_id)
     }
   },
-
+  
 }
 
 export const mutations = {

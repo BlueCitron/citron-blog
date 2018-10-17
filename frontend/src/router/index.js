@@ -19,13 +19,13 @@ export default new Router({
       name: 'homeBody',
       component: HomeCoponent,
       children: [
-        {path: '', component: Home},
-        {path: 'login', component: Login},
-        {path: 'post/:post_id', name:'PostView', component: Post},
-        {path: 'category/:category_id', component: PostList},
-        {path: 'category', component: CategoryEdit},
-        {path: 'write', component: PostWrite},
-        {path: 'join', component: Join},
+        { path: '', component: Home},
+        { path: 'login', component: Login},
+        { path: 'post/:post_id', name:'PostView', component: Post, props: true },
+        { path: 'category/:category_id', component: PostList},
+        { path: 'category', component: CategoryEdit},
+        { path: 'write', component: PostWrite},
+        { path: 'join', component: Join},
       ]
     },
     {

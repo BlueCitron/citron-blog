@@ -72,6 +72,10 @@ export const actions = {
 
     // 홈 화면으로 이동
     rootGetters.getMainInstance.$router.push('/')
+  },
+  async create ({}, { account, password, nickname, email }) {
+    let { data } = await userAPI.create({ account, password, nickname, email })
+    return data.success
   }
 }
 

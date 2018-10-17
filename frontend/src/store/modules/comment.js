@@ -20,6 +20,7 @@ export const actions = {
     commit('setComments', data)
   },
   async insertComment ({ dispatch, rootGetters }, { postId, content }) {
+
     const comment = {
       postId,
       content,
@@ -28,7 +29,10 @@ export const actions = {
       // parent: null
     }
     let { data } = await commentAPI.insert(comment)
-    dispatch('refresh')
+    if(data.success) {
+      dispatch('refresh')
+      return ''
+    }
   },
   async deleteComment ({ dispatch }, { _id }) {
     let { data } = await commentAPI.delete(_id)

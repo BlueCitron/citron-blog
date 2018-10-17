@@ -3,15 +3,15 @@ import { User } from '../models/user';
 const SECRET = 'YogertStrawberry'
 
 export const getAllUsers = async () => {
-  return User.find();
+  return User.find({ isDeleted: false });
 };
 
 export const getUserById = async (_id) => {
-  return User.find({ _id });
+  return User.find({ _id, isDeleted: false });
 };
 
 export const getUserByAccount = async (account) => {
-  return User.find({ account });
+  return User.find({ account, isDeleted: false });
 };
 
 export const createUser = async ({ account, password, nickname, email }) => {

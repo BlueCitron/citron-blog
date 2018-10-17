@@ -36,7 +36,10 @@
   </template>
   <hr class="my-4" />
   <v-list dense>
-    <v-list-tile @click="moveCategory(item._id)" v-for="item in getCategories">
+    <v-list-tile
+    @click="moveCategory(item._id)"
+    v-for="item in getCategories"
+    v-if="item.name != '공지사항'">
       <v-list-tile-action>
         <v-icon>list</v-icon>
       </v-list-tile-action>
