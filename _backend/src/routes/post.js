@@ -3,25 +3,28 @@ import { getLatestPosts, getAllPostsOfCategory, getPostsOfCategoryWithPaging, cr
 
 export const postRouter = express.Router();
 
-const handdleError = (error) => {
-  console.log(error);
-  return res.status(500).json({
-    success: false,
-    message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해보세요.'
-  });
-}
-
 postRouter.get('/latest', function(req, res) {
 
   const respond = (result) => {
-    if(!result)
-      return res.status(404).json('Not Found..');
+
     return res.json(result);
+
+  }
+
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
   getLatestPosts()
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 });
 
 postRouter.get('/:category([0-9a-fA-F]{24})', function(req, res) {
@@ -35,9 +38,20 @@ postRouter.get('/:category([0-9a-fA-F]{24})', function(req, res) {
     return res.json(result);
   }
 
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+
   getPostsOfCategoryWithPaging(category, page, perPage)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 });
 
 postRouter.post('/', function(req, res) {
@@ -50,9 +64,20 @@ postRouter.post('/', function(req, res) {
     });
   }
 
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+
   createPost(post)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });
 
@@ -68,9 +93,20 @@ postRouter.put('/:_id([0-9a-fA-F]{24})', function(req, res) {
     });
   }
 
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+
   updatePost(_id, post)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });
 
@@ -85,8 +121,19 @@ postRouter.delete('/:_id([0-9a-fA-F]{24})', function(req, res) {
     });
   }
 
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+
   deletePost(_id)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });

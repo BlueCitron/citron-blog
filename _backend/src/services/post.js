@@ -12,7 +12,8 @@ export const getPostsOfCategoryWithPaging = async (category_id, page, perPage) =
   let skip = (page - 1) * perPage;
   let limit = perPage/1;
 
-  return Post.find({ category: category_id, isDeleted: false })
+  return Post
+    .find({ category: category_id, isDeleted: false })
     .skip(skip).limit(limit)
     .populate('category', 'name').populate('createdBy', 'nickname')
 }

@@ -24,6 +24,7 @@
   </v-layout>
   <v-layout row justify-center>
     <!-- <v-pagination v-model="list" :length="list.length"></v-pagination> -->
+    {{getComments}}
   </v-layout>
 </v-container>
 </template>
@@ -31,7 +32,8 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
-    ...mapGetters('post', ['getLatestPosts', 'getNotices'])
+    ...mapGetters('post', ['getLatestPosts', 'getNotices']),
+    ...mapGetters('comment', ['getComments', 'getCommentsByPostId'])
   },
   methods: {
     ...mapActions('post', ['latestPosts', 'refresh'])

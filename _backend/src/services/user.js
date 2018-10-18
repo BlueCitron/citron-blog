@@ -7,7 +7,7 @@ export const getAllUsers = async () => {
 };
 
 export const getUserById = async (_id) => {
-  return User.find({ _id, isDeleted: false });
+  return User.findOne({ _id, isDeleted: false });
 };
 
 export const getUserByAccount = async (account) => {

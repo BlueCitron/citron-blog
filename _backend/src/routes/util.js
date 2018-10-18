@@ -3,14 +3,6 @@ import { viewPost, isDuplicatedAccount, isDuplicatedNickname, isDuplicatedEmail 
 
 export const utilRouter = express.Router();
 
-const handdleError = (error) => {
-  console.log(error);
-  return res.status(500).json({
-    success: false,
-    message: '서비스에 문제가 생겼습니다. 잠시 후에 다시 시도해주세요.'
-  });
-}
-
 utilRouter.get('/postview/:_id([0-9a-fA-F]{24})', function(req, res) {
 
   const { _id } = req.params
@@ -21,9 +13,20 @@ utilRouter.get('/postview/:_id([0-9a-fA-F]{24})', function(req, res) {
     })
   }
 
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+
   viewPost(_id)
     .then(respond)
-    .catch(handdleError)
+    .catch(handleError)
 });
 
 utilRouter.get('/duplicate', function(req, res) {
@@ -35,7 +38,7 @@ utilRouter.get('/duplicate', function(req, res) {
     if (!result) {
       return res.json({
         success: true,
-        message: 'Not Duplicated.'
+        message: '사용할 수 있습니다.'
       })
     }
     return res.json({
@@ -44,18 +47,29 @@ utilRouter.get('/duplicate', function(req, res) {
     })
   }
 
+  const handleError = (error) => {
+
+    console.log(error);
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
+  }
+
   if (account !== undefined) {
     isDuplicatedAccount(account)
       .then(respond)
-      .catch(handdleError)
+      .catch(handleError)
   } else if (nickname !== undefined) {
     isDuplicatedNickname(nickname)
     .then(respond)
-    .catch(handdleError)
+    .catch(handleError)
   } else if (email !== undefined) {
     isDuplicatedEmail(email)
     .then(respond)
-    .catch(handdleError)
+    .catch(handleError)
   }
 
 })

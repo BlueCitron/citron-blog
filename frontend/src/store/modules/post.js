@@ -56,7 +56,7 @@ export const actions = {
     const createdBy = rootGetters['user/getUserInfo']._id
     post = { createdBy,  ...post}
     let { data } = await postAPI.write(post)
-    if(data == 'success..'){
+    if(data.success){
       // 홈 화면으로 이동
       rootGetters.getMainInstance.$router.push('/')
     }

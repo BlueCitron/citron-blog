@@ -7,19 +7,25 @@ export const commentRouter = express.Router();
 commentRouter.get('/', function(req, res) {
 
   const respond = (result) => {
-    if(!result)
-      return res.status(404).json('Not Found..');
+
     return res.json(result);
+
   }
 
-  const handdleError = (error) => {
+  const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
   getAllComments()
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });
 
@@ -29,81 +35,107 @@ commentRouter.get('/:postId([0-9a-fA-F]{24})', function(req, res) {
   const { postId } = req.params;
 
   const respond = (result) => {
-    if(!result)
-      return res.status(404).json('Not Found..');
     return res.json(result);
   }
 
-  const handdleError = (error) => {
+  const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
   getCommentByPostId(postId)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });
 
 commentRouter.post('/', function(req, res) {
 
   const { comment } = req.body;
+
   const respond = (result) => {
     return res.json({
       success: true
     });
   }
 
-  const handdleError = (error) => {
+  const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
   createComment(comment)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });
 
-commentRouter.put('/:id([0-9a-fA-F]{24})', function(req, res) {
+// TODO 입력값 검증해야됨
+commentRouter.put('/:_id([0-9a-fA-F]{24})', function(req, res) {
 
-  const { id } = req.params;
-  const { comment } = req.body;
+  const { _id } = req.params;
+  const { postId, content, createdBy, isChild, parent } = req.body;
 
   const respond = (result) => {
     return res.json({
-      success: true
+      success: true,
+      _id, postId, content, createdBy, isChild, parent
     });
   }
 
-  const handdleError = (error) => {
+  const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
-  updateComment(id, comment)
+  updateComment(_id, comment)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });
 
-commentRouter.delete('/:id([0-9a-fA-F]{24})', function(req, res) {
+commentRouter.delete('/:_id([0-9a-fA-F]{24})', function(req, res) {
 
-  const { id } = req.params;
+  const { _id } = req.params;
 
   const respond = (result) => {
     return res.json({
-      success: true
+      success: true,
+      _id
     });
   }
 
-  const handdleError = (error) => {
+  const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
-  deleteComment(id)
+  deleteComment(_id)
     .then(respond)
-    .catch(handdleError);
+    .catch(handleError);
 
 });

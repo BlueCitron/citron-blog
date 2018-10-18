@@ -34,8 +34,7 @@
           <v-btn
           flat
           color="primary"
-          @click="insertComment({ postId: post._id, content: newComment })
-                    .then((result)=>{if(result) newComment=''});"
+          @click="insertComment({ postId: post._id, content: newComment }); newComment='';"
           >댓글 등록</v-btn>
         </v-layout>
 
@@ -67,7 +66,6 @@
             :value="item.content"
             ></v-textarea>
           </v-layout>
-          {{item}}
         </template>
   </v-card>
 </v-container>
@@ -78,8 +76,6 @@ import Editor from 'tui-editor'
 import Viewer from 'tui-editor/dist/tui-editor-Viewer'
 export default {
   data: () => ({
-    // post: null,
-    comments: null,
     newComment: ''
   }),
   props: {
@@ -89,7 +85,7 @@ export default {
   },
   computed: {
     ...mapGetters('post', ['getPostById']),
-    ...mapGetters('comment', ['getAllComments', 'getCommentsByPostId'])
+    ...mapGetters('comment', ['getComments', 'getCommentsByPostId'])
   },
   methods: {
     // ...mapActions('category', ['deletePost']),
@@ -104,10 +100,10 @@ export default {
     }
   },
   beforeCreate() {
-    //this.post = this.$route.params.post
+    // props 방식으로 변경
+    // this.post = this.$route.params.post
   },
   created() {
-    this.comments = this.getCommentsByPostId(this.post._id)
     this.view(this.post)
   },
   mounted() {

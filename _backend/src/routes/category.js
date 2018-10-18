@@ -1,26 +1,25 @@
 import express from 'express';
-import {
-  getAllCategories,
-  getCategoryById,
-  createCategory,
-  updateCategory,
-  deleteCategory } from '../services/category'
+import { getAllCategories, createCategory, updateCategory, deleteCategory } from '../services/category'
 
 export const categoryRouter  = express.Router();
 
 categoryRouter.get('/', (req, res) => {
 
   const respond = (result) => {
-    if(!result){
-      return res.status(404).json('Not Found.');
-    }
 
     return res.json(result);
+
   }
 
   const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
   getAllCategories()
@@ -29,84 +28,107 @@ categoryRouter.get('/', (req, res) => {
 
 });
 
-categoryRouter.get('/:id([0-9a-fA-F]{24})', (req, res) => {
-
-  const { id } = req.params;
-
-  const respond = (result) => {
-    if(!result)
-      res.status(404).json('Not Found.');
-
-    return res.json(result);
-  }
-
-  const handleError = (error) => {
-    console.log(error);
-    return res.status(500).json('failure..');
-  }
-
-  getCategoryById(id)
-    .then(respond)
-    .catch(handleError);
-
-});
-
 categoryRouter.post('/', (req, res) => {
 
-  const { category } = req.body;
+  const { name, createdBy } = req.body;
+
+  if (!name || !createdBy) {
+
+    return res.status(409).json({
+      success: false,
+      message: '필수 입력 항목을 모두 입력해주세요.'
+    });
+
+  }
 
   const respond = (result) => {
-    return res.json('success');
+
+    return res.json({
+      success: true,
+      name, createdBy
+    });
+
   }
 
   const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
-  createCategory(category)
+  createCategory({ name, createdBy })
     .then(respond)
     .catch(handleError);
 
 });
 
-categoryRouter.put('/:id([0-9a-fA-F]{24})', (req, res) => {
+categoryRouter.put('/:_id([0-9a-fA-F]{24})', (req, res) => {
 
-  const { id } = req.params;
-  const { category } = req.body;
+  const { _id } = req.params;
+  const { name } = req.body;
 
   const respond = (result) => {
-    return res.json('success');
+
+    return res.json({
+      success: true,
+      name
+    });
+
   }
 
   const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
-  updateCategory(id, category)
+  updateCategory(_id, { name })
     .then(respond)
     .catch(handleError);
 
 });
 
-categoryRouter.delete('/:id([0-9a-fA-F]{24})', (req, res) => {
+categoryRouter.delete('/:_id([0-9a-fA-F]{24})', (req, res) => {
 
-  const { id } = req.params;
+  const { _id } = req.params;
 
   const respond = (result) => {
-    if(!result)
-      res.status(404).json('Not Found.');
 
-    return res.json(result);
+    const { n, ok } = result
+
+    if (n === 0) {
+      res.status(404).json({
+        success: false,
+        message: '카테고리를 찾을 수 없어요. 아이디를 확인해 주세요.'
+      });
+    }
+    return res.json({
+      success: true,
+      _id
+    });
   }
 
   const handleError = (error) => {
+
     console.log(error);
-    return res.status(500).json('failure..');
+
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
+
   }
 
-  deleteCategory(id)
+  deleteCategory(_id)
     .then(respond)
     .catch(handleError);
 

@@ -3,11 +3,11 @@ import commentAPI from '../../api/comment'
 export const namespaced = true
 
 export const state = {
-  comments: []
+  comments: null
 }
 
 export const getters = {
-  getComments: state => { return state.comments },
+  getComments: state => state.comments,
   getCommentsByPostId: state => post_id => { return state.comments.filter(comment => comment.postId == post_id) },
   getLatestComments: state => { return state.comments.sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt)
@@ -15,12 +15,12 @@ export const getters = {
 }
 
 export const actions = {
-  async refresh ({ commit }) {
-    let { data } = await commentAPI.fetch()
-    commit('setComments', data)
+  async refresh ({ commit, state }) {
+    //const { data } = await commentAPI.fetch()
+    //console.log('Result : ', data)
+    commit('setComments', await commentAPI.fetch())
   },
   async insertComment ({ dispatch, rootGetters }, { postId, content }) {
-
     const comment = {
       postId,
       content,
@@ -29,10 +29,9 @@ export const actions = {
       // parent: null
     }
     let { data } = await commentAPI.insert(comment)
-    if(data.success) {
-      dispatch('refresh')
-      return ''
-    }
+    dispatch('refresh')
+    //return data.success
+
   },
   async deleteComment ({ dispatch }, { _id }) {
     let { data } = await commentAPI.delete(_id)
@@ -41,7 +40,9 @@ export const actions = {
 }
 
 export const mutations = {
-  setComments (state, comments) {
-    state.comments = comments
+  setComments (state, { data }) {
+    console.log('Input : ', data)
+    state.comments = data
+    console.log('Check : ', state.comments)
   }
 }
