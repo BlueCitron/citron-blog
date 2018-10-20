@@ -22,98 +22,155 @@ userRouter.get('/', function (req, res) {
       query = req.query;
 
   var respond = function respond(result) {
-    if (!result) return res.status(404).json('Not Found..');
+    if (!result) return res.status(404).json({
+      success: false,
+      message: '해당 하는 유저를 찾을 수 없습니다.'
+    });
     return res.json(result);
   };
 
-  var handdleError = function handdleError(error) {
+  var handleError = function handleError(error) {
     console.log(error);
-    return res.status(500).json('failure..');
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
   };
 
-  (0, _user.getAllUsers)().then(respond).catch(handdleError);
+  (0, _user.getAllUsers)().then(respond).catch(handleError);
 }); // 한명의 유저 정보
 
-userRouter.get('/:id([0-9a-fA-F]{24})', function (req, res) {
-  var id = req.params.id;
+userRouter.get('/:_id([0-9a-fA-F]{24})', function (req, res) {
+  var _id = req.params._id;
 
   var respond = function respond(result) {
-    if (!result) return res.status(404).json('Not Found..');
+    if (!result) return res.status(404).json({
+      success: false,
+      message: '해당 하는 유저를 찾을 수 없습니다.'
+    });
     return res.json(result);
   };
 
-  var handdleError = function handdleError(error) {
+  var handleError = function handleError(error) {
     console.log(error);
-    return res.status(500).json('failure..');
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
   };
 
-  (0, _user.getUserById)(id).then(respond).catch(handdleError);
+  (0, _user.getUserById)(_id).then(respond).catch(handleError);
 }); // 유저 등록
 
 userRouter.post('/', function (req, res) {
-  var user = req.body.user;
+  var _req$body = req.body,
+      account = _req$body.account,
+      password = _req$body.password,
+      nickname = _req$body.nickname,
+      email = _req$body.email;
 
   var respond = function respond(result) {
-    return res.json('success.. ');
+    var _id = result._id,
+        account = result.account,
+        nickname = result.nickname;
+    return res.json({
+      success: true,
+      _id: _id,
+      account: account,
+      nickname: nickname
+    });
   };
 
-  var handdleError = function handdleError(error) {
+  var handleError = function handleError(error) {
     console.log(error);
-    return res.status(500).json('failure..');
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
   };
 
-  (0, _user.createUser)(user).then(respond).catch(handdleError);
+  (0, _user.createUser)({
+    account: account,
+    password: password,
+    nickname: nickname,
+    email: email
+  }).then(respond).catch(handleError);
 }); // 유저 수정
 
-userRouter.put('/:id([0-9a-fA-F]{24})', function (req, res) {
-  var id = req.params.id;
-  var user = req.body.user;
+userRouter.put('/:_id([0-9a-fA-F]{24})', function (req, res) {
+  var _id = req.params._id;
+  var _req$body2 = req.body,
+      nickname = _req$body2.nickname,
+      email = _req$body2.email;
 
   var respond = function respond(result) {
-    return res.json('success.. ');
+    return res.json({
+      success: true,
+      nickname: nickname,
+      email: email
+    });
   };
 
-  var handdleError = function handdleError(error) {
+  var handleError = function handleError(error) {
     console.log(error);
-    return res.status(500).json('failure..');
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
   };
 
-  (0, _user.updateUser)(id, user).then(respond).catch(handdleError);
+  (0, _user.updateUser)(_id, {
+    nickname: nickname,
+    email: email
+  }).then(respond).catch(handleError);
 }); // 패스워드 변경
 
-userRouter.put('/password/:id([0-9a-fA-F]{24})', function (req, res) {
-  console.log('Check');
-  var id = req.params.id;
+userRouter.put('/password/:_id([0-9a-fA-F]{24})', function (req, res) {
+  var _id = req.params._id;
   var password = req.body.password;
 
   var respond = function respond(result) {
     return res.json({
-      success: true
+      success: true,
+      message: '패스워드가 변경 되었습니다.'
     });
   };
 
-  var handdleError = function handdleError(error) {
+  var handleError = function handleError(error) {
     console.log(error);
-    return res.status(500).json({
-      success: false
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
     });
   };
 
-  (0, _user.updatePassword)(id, password).then(respond).catch(handdleError);
+  (0, _user.updatePassword)(_id, password).then(respond).catch(handleError);
 }); // 유저 삭제
 
-userRouter.delete('/:id([0-9a-fA-F]{24})', function (req, res) {
-  var id = req.params.id;
+userRouter.delete('/:_id([0-9a-fA-F]{24})', function (req, res) {
+  var _id = req.params._id;
 
   var respond = function respond(result) {
-    if (!result) return res.status(404).json('Not Found..');
+    var n = result.n,
+        ok = result.ok;
+
+    if (n === 0) {
+      return res.status(404).json({
+        success: false,
+        message: '유저를 찾을 수 없어요. 아이디를 확인해 주세요.'
+      });
+    }
+
     return res.json(result);
   };
 
-  var handdleError = function handdleError(error) {
+  var handleError = function handleError(error) {
     console.log(error);
-    return res.status(500).json('failure..');
+    res.status(error.status || 500).json({
+      success: false,
+      message: error.message
+    });
   };
 
-  (0, _user.deleteUser)(id).then(respond).catch(handdleError);
+  (0, _user.deleteUser)(_id).then(respond).catch(handleError);
 });

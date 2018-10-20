@@ -19,6 +19,8 @@ var _comment = require("./comment");
 
 var _auth = require("./auth");
 
+var _util = require("./util");
+
 var _auth2 = require("../services/auth");
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
@@ -35,6 +37,7 @@ router.use('/user', _user.userRouter);
 router.use('/post', _post.postRouter);
 router.use('/comment', _comment.commentRouter);
 router.use('/auth', _auth.authRouter);
+router.use('/util', _util.utilRouter);
 router.get('/login', function (req, res) {
   var userInfo = {
     account: 'sds901234',

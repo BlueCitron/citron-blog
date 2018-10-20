@@ -27,7 +27,9 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            return _context.abrupt("return", _user.User.find());
+            return _context.abrupt("return", _user.User.find({
+              isDeleted: false
+            }));
 
           case 1:
           case "end":
@@ -54,8 +56,9 @@ function () {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            return _context2.abrupt("return", _user.User.find({
-              _id: _id
+            return _context2.abrupt("return", _user.User.findOne({
+              _id: _id,
+              isDeleted: false
             }));
 
           case 1:
@@ -84,7 +87,8 @@ function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             return _context3.abrupt("return", _user.User.find({
-              account: account
+              account: account,
+              isDeleted: false
             }));
 
           case 1:
@@ -108,21 +112,21 @@ function () {
   var _ref4 = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee4(_ref5) {
-    var acccountType, account, password, nickname, email;
+    var account, password, nickname, email, encryptedPassword;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            acccountType = _ref5.acccountType, account = _ref5.account, password = _ref5.password, nickname = _ref5.nickname, email = _ref5.email;
+            account = _ref5.account, password = _ref5.password, nickname = _ref5.nickname, email = _ref5.email;
+            encryptedPassword = _crypto.default.createHmac('sha256', SECRET).update(password).digest('base64');
             return _context4.abrupt("return", _user.User.create({
-              acccountType: acccountType,
               account: account,
-              password: password,
+              password: encryptedPassword,
               nickname: nickname,
               email: email
             }));
 
-          case 2:
+          case 3:
           case "end":
             return _context4.stop();
         }

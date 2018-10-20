@@ -18,6 +18,10 @@ var _mongoose = _interopRequireDefault(require("mongoose"));
 
 var _cors = _interopRequireDefault(require("cors"));
 
+var visit = _interopRequireWildcard(require("./services/visit"));
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express.default)();
@@ -44,3 +48,5 @@ _mongoose.default.connect('mongodb://49.247.204.250/bluecitron', {
 }).then(function () {
   console.log('MongoDB Connected -> 49.247.204.250/bluecitron');
 }).catch(console.error);
+
+visit.getToday();

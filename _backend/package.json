@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "cross-env NODE_ENV=development babel src --out-dir build",
-    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/app.js --watch src"
+    "build": "cross-env NODE_ENV=production babel src --out-dir build",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/app.js --watch src",
+    "forever": "cross-env NODE_ENV=production forever start forever.json",
+    "list": "forever list",
+    "stop": "forever stop citron_backend"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",

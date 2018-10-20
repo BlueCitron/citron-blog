@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteCategory = exports.updateCategory = exports.createCategory = exports.getCategoryById = exports.getAllCategories = void 0;
+exports.deleteCategory = exports.updateCategory = exports.createCategory = exports.getAllCategories = void 0;
 
 var _mongoose = _interopRequireDefault(require("mongoose"));
 
@@ -44,21 +44,42 @@ function () {
 
 exports.getAllCategories = getAllCategories;
 
-var getCategoryById =
+var createCategory =
 /*#__PURE__*/
 function () {
   var _ref2 = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee2(id) {
+  regeneratorRuntime.mark(function _callee2(_ref3) {
+    var name, createdBy, isExist, CategoryExistsError;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            return _context2.abrupt("return", _category.Category.find({
-              _id: id
-            }).populate('createdBy', 'nickname'));
+            name = _ref3.name, createdBy = _ref3.createdBy;
+            _context2.next = 3;
+            return _category.Category.find({
+              name: name
+            });
 
-          case 1:
+          case 3:
+            isExist = _context2.sent;
+
+            if (!(isExist.length == 0)) {
+              _context2.next = 8;
+              break;
+            }
+
+            return _context2.abrupt("return", _category.Category.create({
+              name: name,
+              createdBy: createdBy
+            }));
+
+          case 8:
+            CategoryExistsError = new Error('카테고리가 존재합니다.');
+            CategoryExistsError.status = 403;
+            throw CategoryExistsError;
+
+          case 11:
           case "end":
             return _context2.stop();
         }
@@ -66,57 +87,8 @@ function () {
     }, _callee2, this);
   }));
 
-  return function getCategoryById(_x) {
+  return function createCategory(_x) {
     return _ref2.apply(this, arguments);
-  };
-}();
-
-exports.getCategoryById = getCategoryById;
-
-var createCategory =
-/*#__PURE__*/
-function () {
-  var _ref3 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee3(_ref4) {
-    var name, createdBy, isExist;
-    return regeneratorRuntime.wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            name = _ref4.name, createdBy = _ref4.createdBy;
-            _context3.next = 3;
-            return _category.Category.find({
-              name: name
-            });
-
-          case 3:
-            isExist = _context3.sent;
-
-            if (!(isExist.length == 0)) {
-              _context3.next = 8;
-              break;
-            }
-
-            return _context3.abrupt("return", _category.Category.create({
-              name: name,
-              createdBy: createdBy
-            }));
-
-          case 8:
-            console.log('Validation Fail..');
-            throw 'Validation Fail..';
-
-          case 10:
-          case "end":
-            return _context3.stop();
-        }
-      }
-    }, _callee3, this);
-  }));
-
-  return function createCategory(_x2) {
-    return _ref3.apply(this, arguments);
   };
 }();
 
@@ -125,17 +97,17 @@ exports.createCategory = createCategory;
 var updateCategory =
 /*#__PURE__*/
 function () {
-  var _ref5 = _asyncToGenerator(
+  var _ref4 = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee4(id, _ref6) {
+  regeneratorRuntime.mark(function _callee3(_id, _ref5) {
     var name;
-    return regeneratorRuntime.wrap(function _callee4$(_context4) {
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
-        switch (_context4.prev = _context4.next) {
+        switch (_context3.prev = _context3.next) {
           case 0:
-            name = _ref6.name;
-            return _context4.abrupt("return", _category.Category.update({
-              _id: id
+            name = _ref5.name;
+            return _context3.abrupt("return", _category.Category.update({
+              _id: _id
             }, {
               $set: {
                 name: name
@@ -144,14 +116,14 @@ function () {
 
           case 2:
           case "end":
-            return _context4.stop();
+            return _context3.stop();
         }
       }
-    }, _callee4, this);
+    }, _callee3, this);
   }));
 
-  return function updateCategory(_x3, _x4) {
-    return _ref5.apply(this, arguments);
+  return function updateCategory(_x2, _x3) {
+    return _ref4.apply(this, arguments);
   };
 }();
 
@@ -160,27 +132,27 @@ exports.updateCategory = updateCategory;
 var deleteCategory =
 /*#__PURE__*/
 function () {
-  var _ref7 = _asyncToGenerator(
+  var _ref6 = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee5(id) {
-    return regeneratorRuntime.wrap(function _callee5$(_context5) {
+  regeneratorRuntime.mark(function _callee4(_id) {
+    return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
-        switch (_context5.prev = _context5.next) {
+        switch (_context4.prev = _context4.next) {
           case 0:
-            return _context5.abrupt("return", _category.Category.deleteOne({
-              _id: id
+            return _context4.abrupt("return", _category.Category.deleteOne({
+              _id: _id
             }));
 
           case 1:
           case "end":
-            return _context5.stop();
+            return _context4.stop();
         }
       }
-    }, _callee5, this);
+    }, _callee4, this);
   }));
 
-  return function deleteCategory(_x5) {
-    return _ref7.apply(this, arguments);
+  return function deleteCategory(_x4) {
+    return _ref6.apply(this, arguments);
   };
 }();
 

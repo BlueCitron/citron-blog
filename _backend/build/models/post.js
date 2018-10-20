@@ -36,6 +36,10 @@ var PostSchema = new Schema({
   isDeleted: {
     type: Boolean,
     default: false
+  },
+  previewImage: {
+    type: String,
+    default: ''
   }
 });
 
