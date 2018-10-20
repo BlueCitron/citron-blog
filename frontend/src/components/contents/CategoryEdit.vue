@@ -72,13 +72,8 @@
               </v-card-actions>
             </v-card>
           </v-dialog>
-
-
         </v-list-tile>
-
-
       </v-list>
-
     </v-flex>
   </v-layout>
 </v-container>
@@ -95,6 +90,6 @@ export default {
   },
   methods: {
     ...mapActions('category', ['insertCategory', 'updateCategory', 'deleteCategory']),
-  }
+  },
 }
 </script>

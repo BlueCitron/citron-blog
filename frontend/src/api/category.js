@@ -5,8 +5,8 @@ export default {
   fetch() {
     return axios.get(config.apiServer.url + '/category')
   },
-  insert (category) {
-    return axios.post(config.apiServer.url + '/category', { category })
+  insert ({ name, createdBy }) {
+    return axios.post(config.apiServer.url + '/category', { name, createdBy })
   },
   update (category_id, category) {
     return axios.put(config.apiServer.url + `/category/${category_id}`, { category })
