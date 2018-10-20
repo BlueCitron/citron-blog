@@ -24,8 +24,14 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   data: () => ({
-
+    post: null
   }),
+  props: {
+    some: {
+      type: String,
+      default: 'Hello'
+    }
+  },
   computed: {
     ...mapGetters('user', ['getSignedInState']),
     ...mapGetters('category', ['getCategoryNameById']),
@@ -34,6 +40,7 @@ export default {
   methods: {
     ...mapActions(['changeDrawer']),
     ...mapActions('user', ['signout']),
+    ...mapActions('category', ['test']),
     setCategoryName () {
       if(this.$route.params.category_id)
         return `${this.getCategoryNameById(this.$route.params.category_id)} (${this.getPostsWithPaging.length})`
@@ -43,10 +50,14 @@ export default {
         return `${category.name} (${this.getPostsWithPaging.length})`
       }
     }
-
+  },
+  beforeCreate () {
+    this.$store.dispatch('category/refresh')
   },
   created() {
-
+    this.post = this.$route.params.post
+    console.log('check : ', this.post)
+    this.$store.dispatch('post/refresh', this.post.category._id)
   }
 }
 </script>

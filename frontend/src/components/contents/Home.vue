@@ -23,8 +23,7 @@
     </v-flex>
   </v-layout>
   <v-layout row justify-center>
-    <!-- <v-pagination v-model="list" :length="list.length"></v-pagination> -->
-    {{getComments}}
+    <!-- <v-pagination v-model="list" :length="list.length"></v-pagination> -->    
   </v-layout>
 </v-container>
 </template>

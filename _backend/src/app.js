@@ -31,3 +31,6 @@ mongoose.connect('mongodb://49.247.204.250/bluecitron', {useNewUrlParser: true})
     console.log('MongoDB Connected -> 49.247.204.250/bluecitron')
   })
   .catch(console.error);
+
+import * as visit from './services/visit'
+visit.getToday()

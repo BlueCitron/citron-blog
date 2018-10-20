@@ -39,17 +39,15 @@ export const actions = {
   },
   async updateCategory ({ commit, dispatch  }, category) {
     // commit
-    const { _id  } = category
+    const { _id } = category
     let { data } = await categoryAPI.update(_id, category)
-    console.log('update category..', data)
     // refresh
     dispatch('refresh')
   },
   async deleteCategory ({ commit, dispatch  }, category) {
     // commit
-    const { _id  } = category
+    const { _id } = category
     let { data } = await categoryAPI.delete(_id)
-    console.log('delete category..', data)
     // refresh
     dispatch('refresh')
   },

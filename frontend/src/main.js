@@ -19,16 +19,26 @@ Vue.prototype.$http = axios
 Vue.prototype.moment = moment
 Vue.config.productionTip = false
 
-const main = new Vue({
-  render: h => h(App)
-  , store
-  , router
-}).$mount('#app')
+// const main = new Vue({
+//   render: h => h(App)
+//   , store
+//   , router
+// }).$mount('#app')
+//
+// store.commit('setMainInstance', main)
 
-store.commit('setMainInstance', main)
-
-store.dispatch('user/refresh')
+//store.dispatch('user/refresh')
 store.dispatch('comment/refresh')
 store.dispatch('category/refresh')
 store.dispatch('post/latestPosts')
 // store.dispatch('post/refresh') // 특정 카테고리 이동시 Refresh
+let main = null
+setTimeout(() => {
+  main = new Vue({
+     render: h => h(App)
+     , store
+     , router
+   }).$mount('#app')
+   store.commit('setMainInstance', main)
+   store.dispatch('user/refresh')
+}, 1000)

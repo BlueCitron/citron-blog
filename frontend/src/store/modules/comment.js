@@ -1,4 +1,4 @@
-import commentAPI from '../../api/comment'
+ import commentAPI from '../../api/comment'
 
 export const namespaced = true
 
@@ -9,15 +9,14 @@ export const state = {
 export const getters = {
   getComments: state => state.comments,
   getCommentsByPostId: state => post_id => { return state.comments.filter(comment => comment.postId == post_id) },
-  getLatestComments: state => { return state.comments.sort((a, b) => {
+  getLatestComments: state => state.comments.sort((a, b) => {
     return new Date(b.createdAt) - new Date(a.createdAt)
-  }).splice(0, 5)}
+  }).splice(0, 5)
+  //getLatestComments: state => { return state.comments }
 }
 
 export const actions = {
   async refresh ({ commit, state }) {
-    //const { data } = await commentAPI.fetch()
-    //console.log('Result : ', data)
     commit('setComments', await commentAPI.fetch())
   },
   async insertComment ({ dispatch, rootGetters }, { postId, content }) {
@@ -41,8 +40,6 @@ export const actions = {
 
 export const mutations = {
   setComments (state, { data }) {
-    console.log('Input : ', data)
     state.comments = data
-    console.log('Check : ', state.comments)
   }
 }
