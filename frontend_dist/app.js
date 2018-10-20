@@ -16,8 +16,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/', indexRouter);
 
-app.listen(8080, () => {
-  console.log('Server is listening on port 8080')
+app.listen(9100, () => {
+  console.log('Server is listening on port 9100')
 })
 
 module.exports = app;
